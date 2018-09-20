@@ -1,0 +1,16 @@
+SDL_RenderDrawLine(s)
+SDL_RenderDrawPoint(s)
+SDL_RenderDrawRect(s)
+
+There are demonstrations of these in the course repo
+
+FrameGenerator is the malloy class: it writes image to a file called "frames."
+
+Prefix of file I draw MUST be my username (bmprobe), modify string "NAME" at top of main. String in lower left corner must contain my name and title of drawing. Modify "TITLE" in main.
+
+MUST use initialization lists, MUST include:
+  overloaded operator (for example, output or assignment)
+
+Program must create a bmp of image with your username as file prefix
+
+USE make clean IN DIRECTORY BEFORE COMPRESSION
