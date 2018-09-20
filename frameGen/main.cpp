@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <SDL_ttf.h>
 #include "frameGenerator.h"
+#include "shine.h"
 
 const std::string TITLE = "Brett Probert's thingy";
 const std::string NAME = "bmprobe";
@@ -30,7 +31,7 @@ void writeName(SDL_Renderer* renderer) {
   if (font == NULL) {
     throw std::string("error: font not found");
   }
-  SDL_Color textColor = {0, 255, 255, 1};
+  SDL_Color textColor = {100, 0, 0, 1};
   SDL_Surface* surface =
     TTF_RenderText_Solid(font, TITLE.c_str(), textColor);
   SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -65,7 +66,7 @@ int main(void) {
       window, -1, SDL_RENDERER_SOFTWARE
     );
 
-    SDL_SetRenderDrawColor( renderer, 0, 0, 0, 255 );
+    SDL_SetRenderDrawColor( renderer, 135, 206, 235, 0 );
     SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 
@@ -73,11 +74,11 @@ int main(void) {
     SDL_Color color = {255, 165, 0, 255};
     drawCircle(renderer, center, 50, color);
 //CODE GOES BELOW HERE_______________________
-    center = {320, 380};
-    drawCircle(renderer, center, 100, color);
+    drawCircle(renderer, {320, 380}, 100, color);
     drawCircle(renderer, {320, 175}, 25, color);
+    ShineSprite shineMaker(renderer);
 
-
+    shineMaker.makeShine({250, 250}, 50); //Center, size (in pixels?)
 //CODE GOES ABOVE HERE_______________________
     writeName(renderer);
     SDL_RenderPresent(renderer);
