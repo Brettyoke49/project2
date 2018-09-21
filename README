@@ -1,15 +1,30 @@
-Name:
+Name: Brett Probert
 
-Course:
+Course: CPSC 4160
 
-Clemson Email Address:
+Clemson Email Address: bmprobe@g.clemson.edu
 
 Project no: 2
 
 Project due date: Sept. 21, 2018
 
 Project description: (Also, what image did you draw?)
+For starters, I chose to draw a shine sprite from one of my favorite
+games as a kid, Super Mario Sunshine. Included are two classes,
+shine.h and shine.cpp where I implemented a class that produces
+shine sprites of a fixed size. The primary function (makeShine) can
+be called any number of times with varying centers. Of course, the
+shine sprites will overlap each other if you don't use a much larger
+window.
 
 The easiest part of this project:
+Deciding what I wanted to draw. Also, setting the name, title, and
+background color of the window. Picking a font was fun I suppose.
 
 Problems that I had in completing this project:
+Triangles. I have a newfound respect for triangles. Filling
+a triangle one pixel at a time was much much harder than I
+expected, and I could not find a decent algorithm anywhere.
+Eventually I settled for my own, and although it leaves a little bit
+of empty space within some triangles, it does a pretty good job
+for the most part.

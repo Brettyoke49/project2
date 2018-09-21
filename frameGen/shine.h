@@ -3,20 +3,28 @@
 #include "frameGenerator.h"
 #include <SDL2/SDL.h>
 #include <SDL_ttf.h>
+#include <iostream>
+#include <math.h>
 
-//This will be the header class for my shine sprite
+const SDL_Color ShineYellow = {204, 204, 0, 255};
+const SDL_Color ShineBlack = {1, 1, 1, 225};
 
 class ShineSprite {
   public:
-    ShineSprite(SDL_Renderer* r) : renderer(r), bgColor({255, 255, 255, 255}) {};
-    void makeShine(SDL_Point center, int size);
-    void makeClouds(int number);
+    ShineSprite(SDL_Renderer* r) : renderer(r) {};
+    ~ShineSprite() = default;
+    ShineSprite(const ShineSprite&) = delete;
+    void makeShine(SDL_Point center);
+    void makeRandClouds(int number);
   private:
     SDL_Renderer *renderer;
-    SDL_Color bgColor;
-    void makeTriangle(SDL_Point edge, int size);
-    void makeBody(SDL_Point center, int size);
-    void makeCrown(SDL_Point crown, int size);
-    void makeEye(SDL_Point center, int size);
-    void randomClouds();
+    void makeBody(SDL_Point center);
+    void makeEye(SDL_Point center);
+    void makePoint(SDL_Point left, SDL_Point right,
+                   SDL_Point top);
 };
+
+std::ostream& operator<<(std::ostream& out, const SDL_Point& p);
+
+void drawCircle(SDL_Renderer* renderer,
+  SDL_Point center, int radius, SDL_Color color);
